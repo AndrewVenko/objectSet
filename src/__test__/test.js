@@ -16,16 +16,16 @@ describe('Team class', () => {
     expect(() => team.add(John)).toThrow('Данный персонаж уже находится в команде!');
   });
 
-  it('Добавление нескольки хперсонажей', () => {
+  it('Добавление нескольки персонажей', () => {
     team.addAll(Jane, Jack);
     expect(team.members.size).toBe(3);
   });
 
-  it('Добавление нескольких участников с уже добавленными вызывает ошибку', () => {
+  it('Добавление нескольких одинаковых участников вызывает ошибку', () => {
     expect(() => team.addAll(John, Jane, Jack, Jane)).toThrow('Данный персонаж уже находится в команде!');
   });
 
-  it('should return an array of team members', () => {
+  it('Должен вернуть массив членов команды', () => {
     const arr = team.toArray();
     expect(arr.length).toBe(3);
     expect(arr).toContain(John);
